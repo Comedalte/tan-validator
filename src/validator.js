@@ -1,7 +1,6 @@
 var emailValidator = require("email-validator");
 var validUrl = require('valid-url');
 
-console.log("Validator");
 var validator = {
 
 	isEmail: function(str) {
