@@ -22,7 +22,7 @@ tanValidator.isEmail("this@ismyemail.") // false
 - isEmail(str)
 - equals(str|num, str|num)
 - isUrl(str)
-- isAlphaSedish(str)
+- isAlphaSwedish(str)
 - isAlphaDash(str)
 - isNumeric(str)
 - isNumber(num)

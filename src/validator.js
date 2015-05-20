@@ -17,7 +17,7 @@ var validator = {
 		return true;
 	},
 
-	isAlphaSedish: function(str) {
+	isAlphaSwedish: function(str) {
 		var re = /^[ a-zA-ZåäöÅÄÖéè]+$/i;
 		return typeof str === "string" && re.test(str);
 	},

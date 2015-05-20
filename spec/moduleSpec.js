@@ -36,14 +36,14 @@ describe("validator", function() {
 	});
 
 
-	it("test isAlphaSedish", function() {
-		expect(validator.isAlphaSedish("t a")).toBe(true);
-		expect(validator.isAlphaSedish("12")).toBe(false);
-		expect(validator.isAlphaSedish(2)).toBe(false);
-		expect(validator.isAlphaSedish(["a"])).toBe(false);
-		expect(validator.isAlphaSedish("a_")).toBe(false);
-		expect(validator.isAlphaSedish("-")).toBe(false);
-		expect(validator.isAlphaSedish("öäåÖÅÄéè")).toBe(true);
+	it("test isAlphaSwedish", function() {
+		expect(validator.isAlphaSwedish("t a")).toBe(true);
+		expect(validator.isAlphaSwedish("12")).toBe(false);
+		expect(validator.isAlphaSwedish(2)).toBe(false);
+		expect(validator.isAlphaSwedish(["a"])).toBe(false);
+		expect(validator.isAlphaSwedish("a_")).toBe(false);
+		expect(validator.isAlphaSwedish("-")).toBe(false);
+		expect(validator.isAlphaSwedish("öäåÖÅÄéè")).toBe(true);
 	});
 
 	it("test isNumeric", function() {
