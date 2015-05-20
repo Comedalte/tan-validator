@@ -1,10 +1,11 @@
 {
   "name": "tan-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "String and number validator.",
   "main": "src/validator.js",
   "dependencies": {
-    "email-validator": "^1.0.1"
+    "email-validator": "^1.0.1",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "jasmine-core": "^2.3.4",
