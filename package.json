@@ -1,6 +1,6 @@
 {
   "name": "tan-validator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "String and number validator.",
   "main": "src/validator.js",
   "dependencies": {
