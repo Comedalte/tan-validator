@@ -4,23 +4,27 @@ var validUrl = require('valid-url');
 console.log("Validator");
 var validator = {
 
-	isEmail: function() {
-		return emailValidator.validate("test@email.com");
+	isEmail: function(str) {
+		return emailValidator.validate(str);
 	},
 
 	equals: function(str, comp) {
-		return  str==comp;
+		return  str===comp;
 	},
 
-	isUrl: validUrl.is_uri,
+	isUrl: function(str) {
+		if (typeof validUrl.is_uri(str)=== "undefined")
+			return false;
+		return true;
+	},
 
-	isAlpha: function(str) {
-		var re = /^[ a-zA-ZåäöÅÄÖé]+$/i;
-		return re.test(str);
+	isAlphaSedish: function(str) {
+		var re = /^[ a-zA-ZåäöÅÄÖéè]+$/i;
+		return typeof str === "string" && re.test(str);
 	},
 
 	isAlphaDash: function(str) {
-		var re = /^[ a-zA-ZåäöÅÄÖé\-]+$/i;
+		var re = /^[ a-zA-ZåäöÅÄÖéè\-]+$/i;
 		return re.test(str);
 	},
 
@@ -28,12 +32,20 @@ var validator = {
 		return !isNaN(parseFloat(n)) && isFinite(n);
 	},
 
+	isNumber: function(n) {
+		return typeof n === "number" && !isNaN(parseFloat(n)) && isFinite(n);
+	},
+
 	isInt: function(value) {
 		return typeof value === "number" && (parseFloat(value) == parseInt(value)) && !isNaN(value);
 	},
 
 	isLowercase: function(str) {
-		return typeof str === "string" && str === angular.lowercase(str.toLowerCase);
+		return typeof str === "string" && str === str.toLowerCase();
+	},
+
+	isUppercase: function(str) {
+		return typeof str === "string" && str === str.toUpperCase();
 	},
 
 	isString: function() {
@@ -50,23 +62,30 @@ var validator = {
 
 	isMin: function(number, comp) {
 		comp = parseFloat(comp);
-		return validator.isNumeric(number) && number >= comp;
+		return validator.isNumber(number) && number >= comp;
 	},
 
 	isMax: function(number, comp) {
 		comp = parseFloat(comp);
-		return validator.isNumeric(number) && number <= comp;
+		return validator.isNumber(number) && number <= comp;
 	},
 
 	isDate: function(str) {		
-		var re = /^\d{2,4}[-/]\d{1,2}[-/]\d{1,2}$/i;
-		return re.test(str);
+		var re = /^\d{4}[-/]\d{1,2}[-/]\d{1,2}$/i;
+		if (re.test(str) && isNaN(str) && !isNaN(Date.parse(str)))
+			return true;
+		return false;
+
 	},
 
 	isNumberDash: function(str) {
 		var re = /^[0-9\-]+$/i;
 		return typeof str === "string" && re.test(str);
 	},
+
+	testRegex: function(str, regex) {
+		return typeof str === "string" && regex.test(str);
+	}
 
 };
 
