@@ -89,6 +89,7 @@ describe("validator", function() {
 	it("test isLength", function() {
 		expect(validator.isLength("12", 2)).toBe(true);
 		expect(validator.isLength("dffd", 4, 4)).toBe(true);
+		expect(validator.isLength("dffd", 2, 8)).toBe(true);
 		expect(validator.isLength(2, 3)).toBe(false);
 		expect(validator.isLength(["a"], 0)).toBe(false);
 		expect(validator.isLength("fggf.fdg_fdg-sd", 3, 7)).toBe(false);

@@ -56,7 +56,7 @@ var validator = {
 		if (typeof max == "undefined")
 			return typeof str === "string" && parseInt(min) <= str.length;
 		else 
-			return typeof str === "string" && parseInt(min) <= str.length && parseInt(min) >= str.length;
+			return typeof str === "string" && parseInt(min) <= str.length && parseInt(max) >= str.length;
 	},
 
 
